@@ -1,37 +1,32 @@
-import React from 'react'
-import {HashRouter,Routes,Route} from 'react-router-dom'
-import Login from './Pages/Login'
-import Sidebar from './Pages/Sidebar'
-import Signupteacher from './Pages/Signupteacher'
-import Header from './Pages/Header'
-import Addcts from './Pages/Addcts'
-import Newsandannc from './Pages/Newsandannc'
-import Allcourses from './Pages/Allcourses'
-import Upcomeing from './Pages/Upcomeing'
-import Viewcourses from './Pages/Viewcourses'
-import Signupstudent from './Pages/Signupstudent'
-import Setting from './Pages/Setting'
-import Students from './Pages/Students'
+import React from "react";
+import "./App.css";
+import Home from "./Home";
+import AdminHome from "./AdminHome";
+import Login from "./Components/Login";
+import AdminLogin from "./Components/AdminLogin";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Dashboard from "./Dashboard";
+import SignupStudent from "./Components/SignupStudent";
+import SignupTeacher from "./Components/SignupTeacher";
+import { Provider } from "react-redux";
+import store from "./redux/store/store";
 
 function App() {
   return (
-    <HashRouter>
+    <Provider store={store}>
+    <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Login/>}></Route>
-        <Route path='/Signupteacher' element={<Signupteacher/>}></Route>
-        <Route path='/Signupstudent' element={<Signupstudent/>}></Route>
-        <Route path='/Sidebar' element={<Sidebar/>}></Route>
-        <Route path='/Header' element={<Header/>}></Route>
-        <Route path='/Addcts' element={<Addcts/>}></Route>
-        <Route path='/Newsandannc' element={<Newsandannc/>}></Route>
-        <Route path='/Allcourses' element={<Allcourses/>}></Route>
-        <Route path='/Upcomeing' element={<Upcomeing/>}></Route>
-        <Route path='/Viewcourses' element={<Viewcourses/>}></Route>
-        <Route path='/Setting' element={<Setting/>}></Route>
-        <Route path='/Students' element={<Students/>}></Route>
+        <Route path="/" element={<Login />} />
+        <Route path="/admin" element={<AdminLogin />} />
+        <Route path="signup" element={<SignupTeacher />} />
+        <Route path="signupstudent" element={<SignupStudent />} />
+        <Route path="/Home" element={<Home />} />
+        <Route path="/AdminHome" element={<AdminHome />} />
+        <Route path="/Dashboard" element={Dashboard} />
       </Routes>
-    </HashRouter>
-  )
+    </BrowserRouter>
+    </Provider>
+  );
 }
 
-export default App
+export default App;

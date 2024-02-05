@@ -1,25 +1,58 @@
-const express = require("express");
-const connectDB = require("./config/db");
-const dotenv = require("dotenv");
-const cors = require("cors");
-dotenv.config({ path: "./config.env" });
-const app = express();
-connectDB();
-
-app.use(cors());
-app.use(express.json({ extended: false, limit: "50mb" }));
-
-// api names---
-//example => app.use("/api/todo", require("./routes/todo"));
-
-app.use("/api/userlist", require("./routes/userlist"));
-app.use("/api/addstudents", require("./routes/addstudents"));
-app.use("/api/addcourse", require("./routes/addcourse"));
-app.use("/api/newsandannu", require("./routes/newsandannu"));
-app.use("/api/request", require("./routes/request"));
+var createError = require("http-errors");
+var express = require("express");
+var path = require("path");
+var cookieParser = require("cookie-parser");
+var logger = require("morgan");
+const mongoose = require('mongoose');
+const databaseConnection=require('./src/Database/config')
+var cors = require('cors')
 
 
 
+var indexRouter = require("./routes/index");
+var usersRouter = require("./routes/users");
+var adminRouter = require("./routes/admin");
+var postRouter = require("./routes/common");
 
-const PORT = process.env.PORT || 5001;
-app.listen(PORT, () => console.log(`Server running at ${PORT}`));
+var app = express();
+
+// view engine setup
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "jade");
+
+app.use(cors({
+  "origin": "*",
+  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE"
+}));
+
+app.use(logger("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, "public")));
+
+app.use("/", indexRouter);
+app.use("/users", usersRouter);
+
+app.use("/admin", adminRouter);
+app.use("/common", postRouter);
+
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  next(createError(404));
+});
+
+// error handler
+app.use(function (err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get("env") === "development" ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render("error");
+});
+
+app.listen(8080, () => {
+  console.log("server is running successfully");
+});
