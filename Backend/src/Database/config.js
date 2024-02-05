@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-let connection = mongoose.connect("mongodb://127.0.0.1:27017/VirtualLearning_dbms", {
+let connection = mongoose.connect("mongodb+srv://dhruvambaliya72:Dhruvambaliya2002@cluster0.iv4rqtw.mongodb.net/", {
     useNewUrlParser: true,
     useUnifiedTopology: true
   }).then(connection => {
