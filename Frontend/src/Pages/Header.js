@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable no-lone-blocks */
 import React, { useEffect, useState } from "react";
 import handup from "../handup.png";
 import axios from "axios";
@@ -43,7 +45,9 @@ function Header(props) {
           .filter((l) => l.timing.length > 0)
       );
       setStudentList1(
-        res.data.data.filter((i) => (i.type === "teacher") & (i.timing.length !== []))
+
+        res.data.data.filter((i) => (i.type === "teacher") & (i.timing.length !== 0))
+
       );
     });
   };
