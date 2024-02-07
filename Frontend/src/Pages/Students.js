@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable no-whitespace-before-property */
 import React, { useEffect, useState } from 'react'
 import Sidebar from './Sidebar'
 import Header from './Header'
