@@ -59,8 +59,8 @@ function Login() {
       <ToastContainer autoClose={2000} />
       <div style={{ width: "100%", minHeight: "100vh", display: "flex", flexWrap:"wrap" }}>
         <div className='lgnd1' style={{ height: "100vh", width: "50%", display: "flex", justifyContent: "center", alignItems: "center" }}>
-          <div className='lgnd1' style={{ height: "auto", width: "75%", backgroundColor: "transparent", textAlign: "center", borderRadius: "50px" }}>
-            <h1>Login</h1><br /><br />
+          <div className='lgnd1' style={{ height: "auto", width: "75%", backgroundColor: "transparent", textAlign: "center", borderRadius: "50px", }}>
+            <h1>Login </h1><br /><br />
 
             <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", marginLeft: "5%", height: "70px", justifyContent: "space-evenly" }}>
               <label>Email Address</label>

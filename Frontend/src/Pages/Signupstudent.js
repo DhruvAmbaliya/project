@@ -138,7 +138,7 @@ function Signupstudent() {
             </div>
             <br />
             <button onClick={() => { postStudentData() }} style={{ width: "100%", height: 40, borderRadius: 5, color: "white", backgroundColor: "black", border: "none" }}>Create Account</button><br /><br />
-            <label>Already have an account? <span onClick={() => navigate("/")} style={{ color: "#8b5fb3" }}>Login</span></label>
+            <label>Already have an account? <span onClick={() => navigate("/")} style={{ color: "#8b5fb3",cursor:"pointer", }}>Login</span></label>
           </div>
         </div>
         <div className='lgnd1'
