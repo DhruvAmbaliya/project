@@ -43,7 +43,7 @@ function Header(props) {
           .filter((l) => l.timing.length > 0)
       );
       setStudentList1(
-        res.data.data.filter((i) => (i.type === "teacher") & (i.timing !== []))
+        res.data.data.filter((i) => (i.type === "teacher") & (i.timing.length !== []))
       );
     });
   };
@@ -653,7 +653,7 @@ function Header(props) {
             width: "35%",
             borderRadius: "15px",
             display: "flex",
-            position: "relative"
+            position: "relative",
           }}
         >
           <div className="head-info2"
@@ -680,7 +680,7 @@ function Header(props) {
               }}
             >
               <i
-                style={{ fontSize: "22px" }}
+                style={{ fontSize: "22px",cursor: "pointer", }}
                 class="fa fa-bell-o"
                 aria-hidden="true"
                 onClick={() => setNoti(true)}
@@ -716,13 +716,13 @@ function Header(props) {
               <div style={{ display: "flex" }}>
                 <div style={{ display: "flex" }}>
                   <div
-                    style={{ height: 35, width: 35, border: "1px solid black" }}
+                    style={{ height: 35, width: 35, border: "1px solid black", }}
                   >
                     <input
                       onChange={(e) => uploadImage(e.target.files[0])}
                       id="asd"
                       type="file"
-                      style={{ display: "none" }}
+                      style={{ display: "none", }}
                     />
                     <label for="asd">
                       <div
@@ -731,7 +731,6 @@ function Header(props) {
                           width: 20,
                           borderRadius: "50%",
                           fontSize: 13,
-                          fontWeight: "bold",
                           fontWeight: "bold",
                           border: "none",
                           position: "absolute",
@@ -743,6 +742,7 @@ function Header(props) {
                           display: "flex",
                           justifyContent: "center",
                           alignItems: "center",
+                          cursor: "pointer",
                         }}
                       >
                         +
