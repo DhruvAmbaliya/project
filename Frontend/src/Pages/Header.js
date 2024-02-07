@@ -45,7 +45,9 @@ function Header(props) {
           .filter((l) => l.timing.length > 0)
       );
       setStudentList1(
+
         res.data.data.filter((i) => (i.type === "teacher") & (i.timing.length !== 0))
+
       );
     });
   };
@@ -744,7 +746,8 @@ function Header(props) {
                           display: "flex",
                           justifyContent: "center",
                           alignItems: "center",
-                          }}
+                          cursor: "pointer",
+                        }}
                       >
                         +
                       </div>

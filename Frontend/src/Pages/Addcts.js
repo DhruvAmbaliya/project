@@ -21,7 +21,7 @@ function Addcts() {
     const [specialization, setSpecialization] = useState("")
     const [teachingExp, setTeachingExp] = useState("")
     const [courseName, setCourseName] = useState("")
-    const [teacherName, setTeacherName] = useState("")
+    const [teacherName, setteacherName] = useState("")
     const [heading, setHeading] = useState("")
     const [description, setDescription] = useState("")
     const [time, setTime] = useState("")
