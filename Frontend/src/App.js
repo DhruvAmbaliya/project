@@ -12,12 +12,14 @@ import Viewcourses from './Pages/Viewcourses'
 import Signupstudent from './Pages/Signupstudent'
 import Setting from './Pages/Setting'
 import Students from './Pages/Students'
+import Home from "./Pages/Home";
 
 function App() {
   return (
     <HashRouter>
       <Routes>
-        <Route path='/' element={<Login/>}></Route>
+        <Route path='/' element={<Home/>}></Route>
+        <Route path='/Login' element={<Login/>}></Route>
         <Route path='/Signupteacher' element={<Signupteacher/>}></Route>
         <Route path='/Signupstudent' element={<Signupstudent/>}></Route>
         <Route path='/Sidebar' element={<Sidebar/>}></Route>
