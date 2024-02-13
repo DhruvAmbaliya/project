@@ -7,6 +7,7 @@ import { baseUrl } from "./BaseUrl";
 import storage from "./Firebase";
 import { useNavigate } from "react-router-dom";
 import LobbyScreen from '../screens/lobby.jsx';
+
 function Header(props) {
   useEffect(() => {
     getReqData();
@@ -212,8 +213,8 @@ function Header(props) {
               </div>
             </div>
             <i
-              class="fa fa-times"
-              style={{ position: "absolute", top: 10, right: 10, fontSize: 25 }}
+              className="fa fa-times"
+              style={{ position: "absolute",cursor:"pointer", top: 10, right: 10, fontSize: 25 }}
               onClick={() => setNoti2(false)}
             ></i>
 
@@ -244,7 +245,7 @@ function Header(props) {
                       <td>{timeConvert(i.from)}</td>
                       <td>{timeConvert(i.to)}</td>
                       <td>
-                        <a href={tParshData.videoLink}>
+                        <a href={tParshData.videoLink} target="_blank">
                           <button className="btn btn-outline-primary">
                             Join Class
                           </button>
@@ -285,12 +286,12 @@ function Header(props) {
             
             }}
           >
-            <div style={{ width: "100%", textAlign: "center" }}>
+            <div style={{ width: "100%", textAlign: "center", }}>
               <h1>Notification</h1>
             </div>
             <i
-              class="fa fa-times"
-              style={{ position: "absolute", top: 10, right: 10, fontSize: 25 }}
+              className="fa fa-times"
+              style={{ position: "absolute", top: 10, right: 10, fontSize: 25,cursor: "pointer", }}
               onClick={() => setNoti(false)}
             ></i>
 
@@ -499,6 +500,7 @@ function Header(props) {
                               backgroundColor: "black",
                               color: "white",
                               borderRadius: 10,
+                              
                             }}
                           >
                             View Class schedule
@@ -589,9 +591,9 @@ function Header(props) {
       borderRadius:10, color:"white"}}>
           <h1>KL</h1>
           <i onClick={()=>navigate("/Addcts")} style={{fontSize:"23px"}} className='fa fa-home'></i>
-            <i onClick={()=>navigate("/Allcourses")} style={{fontSize:"23px"}} class="fa fa-graduation-cap" ></i>
-            <i onClick={()=>navigate("/Setting")} style={{fontSize:"23px"}} class="fa fa-cog" ></i>
-            <i onClick={()=>{localStorage.removeItem("check");navigate("/")}} style={{fontSize:"23px"}} class="fa fa-sign-out"></i>
+            <i onClick={()=>navigate("/Allcourses")} style={{fontSize:"23px"}} className="fa fa-graduation-cap" ></i>
+            <i onClick={()=>navigate("/Setting")} style={{fontSize:"23px"}} className="fa fa-cog" ></i>
+            <i onClick={()=>{localStorage.removeItem("check");navigate("/")}} style={{fontSize:"23px"}} className="fa fa-sign-out"></i>
       </div>
 
 
@@ -669,10 +671,10 @@ function Header(props) {
             }}
           >
             <input
-              onChange={(e) => {
-                props.searchFn(e.target.value);
-                props.searchFn1(e.target.value);
-              }}
+              // onChange={(e) => {
+              //   props.searchFn(e.target.value);
+              //   props.searchFn1(e.target.value);
+              // }}   
               style={{ height: "25px", width: "60%" }}
               placeholder="Search Courses"
             />
@@ -686,7 +688,7 @@ function Header(props) {
             >
               <i
                 style={{ fontSize: "22px",cursor: "pointer", }}
-                class="fa fa-bell-o"
+                className="fa fa-bell-o"
                 aria-hidden="true"
                 onClick={() => setNoti(true)}
               ></i>
@@ -729,7 +731,7 @@ function Header(props) {
                       type="file"
                       style={{ display: "none", }}
                     />
-                    <label for="asd">
+                    <label htmlFor="asd">
                       <div
                         style={{
                           height: 20,

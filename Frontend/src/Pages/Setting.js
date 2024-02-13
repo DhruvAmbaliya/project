@@ -437,7 +437,6 @@ function Setting() {
                                     <option>Html</option>
                                     <option>Css</option>
                                     <option>Angular</option>
-
                                 </select>
                             </div>
                             <div style={{ width: "80%", display: "flex", flexDirection: "column", alignItems: "flex-start", height: "60px", justifyContent: "space-evenly" }}>

@@ -12,6 +12,13 @@ const app = express();
 app.use(cors());
 app.use(express.json({ extended: false, limit: "50mb" }));
 
+const io = new Server(8000,{
+  cors:true,
+  // cors: {
+  //   origin: "*", 
+  // },
+}); 
+
 connectDB();
 
 app.use("/api/userlist", require("./routes/userlist"));
@@ -24,12 +31,7 @@ app.use("/api/request", require("./routes/request"));
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => console.log(`Server running at ${PORT}`));
 
-const io = new Server(8000,{
-    cors:true,
-    // cors: {
-    //   origin: "*", 
-    // },
-}); 
+
 
 const emailTOSocketIdMap = new Map();
 const SocketTOemailIdMap = new Map();
@@ -43,7 +45,7 @@ io.on("connection",(socket)=>{
         io.to(room).emit("user:joined",{email,id:socket.id});
         socket.join(room);
         io.to(socket.id).emit("room:join",data);
-        // console.log(data);
+        console.log(data);
     });
 
     socket.on("user:call", ({ to, offer }) => {

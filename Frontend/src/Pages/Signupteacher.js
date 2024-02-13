@@ -109,9 +109,13 @@ function Signupteacher() {
             <div style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "flex-start", height: "60px", justifyContent: "space-evenly" }}>
               <select onChange={(e) => setSpecialization(e.target.value)} style={{ width: "100%", height: 40,border:validation===true&specialization===""?"1px solid red":"1px solid grey" }}>
                 <option selected disabled>Specialization</option>
-                {courseData.map((i) =>
+                <option>Reactjs</option>
+                <option>Node js</option>
+                <option>MySQL</option>
+                <option>Java</option>
+                {/* {courseData.map((i) =>
                   <option>{i.courseName}</option>
-                )}
+                )} */}
               </select>
             </div>
             <div style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "flex-start", height: "60px", justifyContent: "space-evenly" }}>

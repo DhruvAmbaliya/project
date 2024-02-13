@@ -166,16 +166,16 @@ function Addcts() {
                                 <button className='lgnd1' onClick={() => setShowDiv(!showDiv)} style={{ height: 40, width: "50%", backgroundColor: "white", color: "black", borderRadius: 10, border: "none", fontSize: 15, position: "absolute", top: "10%", left: "25%" }}>Add</button><br />
                                 <div style={{
                                     height: (showDiv === true & type === "teacher" ? 37.5 : 0) || (showDiv === true & type !== "teacher" ? 150 : 0), transition: "0.5s", overflow: "hidden", width: "50%", backgroundColor: "white", color: "black", borderRadius: 10, border: "none", fontSize: 15, flexDirection: "column", display: "flex", alignItems: "center", justifyContent: "space-evenly",
-                                    position: "absolute", top: "20%", left: "25%"
+                                    position: "absolute", top: "20%", left: "25%",
                                 }}>
 
-                                    <label onClick={() => setSelectType(1)}>Courses</label>
+                                    <label onClick={() => setSelectType(1)} style={{cursor:"pointer",}}>Courses</label>
                                     {type !== "teacher" &&
-                                        <label onClick={() => setSelectType(2)}>Teachers</label>}
+                                        <label onClick={() => setSelectType(2)} style={{cursor:"pointer",}}>Teachers</label>}
                                     {type !== "teacher" &&
-                                        <label onClick={() => setSelectType(3)}>Students</label>}
+                                        <label onClick={() => setSelectType(3)} style={{cursor:"pointer",}}>Students</label>}
                                     {type !== "teacher" &&
-                                        <label onClick={() => setSelectType(4)}>News and Report</label>}
+                                        <label onClick={() => setSelectType(4)} style={{cursor:"pointer",}}>News and Report</label>}
                                 </div>
                             </div>
 
@@ -194,7 +194,7 @@ function Addcts() {
                                         <input onChange={(e) => setPassword(e.target.value)} placeholder="Password" style={{ width: "100%", height: 40, }} />
                                     </div>
                                     <div style={{ width: "80%", display: "flex", flexDirection: "column", alignItems: "flex-start", height: "60px", justifyContent: "space-evenly" }}>
-                                        <select onChange={(e) => setGrade(e.target.value)} style={{ width: "100%", height: 40, }}>
+                                        <select onChange={(e) => setGrade(e.target.value)} style={{ width: "100%", height: 40,cursor:"pointer", }}>
                                             <option selected disabled>Knowledge Level</option>
                                             <option>Beginner</option>
                                             <option>Intermediate</option>
@@ -204,7 +204,7 @@ function Addcts() {
                                     </div>
                                     <div style={{ width: "80%", display: "flex", flexDirection: "column", alignItems: "flex-start", height: "60px", justifyContent: "space-evenly" }}>
 
-                                        <select onChange={(e) => setAreaOfStudy(e.target.value)} style={{ width: "100%", height: 40 }}>
+                                        <select onChange={(e) => setAreaOfStudy(e.target.value)} style={{ width: "100%", height: 40,cursor:"pointer", }}>
                                             <option selected disabled>Area of study</option>
                                             <option>High School Diploma</option>
                                             <option>Associate's Degree</option>
@@ -216,7 +216,7 @@ function Addcts() {
                                         </select>
                                     </div>
                                     <div style={{ width: "80%", display: "flex", flexDirection: "column", alignItems: "flex-start", height: "60px", justifyContent: "space-evenly" }}>
-                                        <select onChange={(e) => setSkills(e.target.value)} style={{ width: "100%", height: 40, }}>
+                                        <select onChange={(e) => setSkills(e.target.value)} style={{ width: "100%", height: 40,cursor:"pointer", }}>
                                             <option selected disabled>Skills</option>
                                             <option>Python</option>
                                             <option>JavaScript</option>
@@ -228,7 +228,7 @@ function Addcts() {
                                         </select>
                                     </div>
                                     <div style={{ width: "80%", display: "flex", flexDirection: "column", alignItems: "flex-start", height: "60px", justifyContent: "space-evenly" }}>
-                                        <select onChange={(e) => setLanguage(e.target.value)} style={{ width: "100%", height: 40, }}>
+                                        <select onChange={(e) => setLanguage(e.target.value)} style={{ width: "100%", height: 40,cursor:"pointer", }}>
                                             <option selected disabled>Learning Objective</option>
                                             <option>Become a Web Developer</option>
                                             <option>To obtain Data Analytics and Problem-Solving abilities</option>
@@ -262,7 +262,7 @@ function Addcts() {
                                         <input onChange={(e) => setPassword(e.target.value)} placeholder="Password" style={{ width: "100%", height: 40, }} />
                                     </div>
                                     <div style={{ width: "80%", display: "flex", flexDirection: "column", alignItems: "flex-start", height: "60px", justifyContent: "space-evenly" }}>
-                                        <select onChange={(e) => setSpecialization(e.target.value)} style={{ width: "100%", height: 40, }}>
+                                        <select onChange={(e) => setSpecialization(e.target.value)} style={{ width: "100%", height: 40,cursor:"pointer", }}>
                                             <option selected disabled>Specialization</option>
                                             <option >JavaScript</option>
                                             <option >Python</option>
@@ -280,7 +280,7 @@ function Addcts() {
                                     </div>
                                     <div style={{ width: "80%", display: "flex", flexDirection: "column", alignItems: "flex-start", height: "60px", justifyContent: "space-evenly" }}>
 
-                                        <select onChange={(e) => setQualification(e.target.value)} style={{ width: "100%", height: 40, }}>
+                                        <select onChange={(e) => setQualification(e.target.value)} style={{ width: "100%", height: 40,cursor:"pointer", }}>
                                             <option selected disabled>Qualification</option>
                                             <option>Master's Degree</option>
                                             <option>PhD or Doctorate</option>
@@ -289,7 +289,7 @@ function Addcts() {
                                         </select>
                                     </div>
                                     <div style={{ width: "80%", display: "flex", flexDirection: "column", alignItems: "flex-start", height: "60px", justifyContent: "space-evenly" }}>
-                                        <select onChange={(e) => setTeachingExp(e.target.value)} style={{ width: "100%", height: 40, }}>
+                                        <select onChange={(e) => setTeachingExp(e.target.value)} style={{ width: "100%", height: 40,cursor:"pointer", }}>
                                             <option selected disabled>Teaching Experince</option>
                                             <option value={1}>More than 1 year</option>
                                             <option value={2.5}>1-3 years</option>
@@ -333,10 +333,10 @@ function Addcts() {
                                     </div><br />
                                     <div style={{ width: "80%", display: "flex", flexDirection: "column", alignItems: "flex-start", height: "60px", justifyContent: "space-evenly", }}>
 
-                                        <input type="time"  onChange={(e) => setTime(e.target.value)} placeholder="Time" style={{ width: "100%", height: 40, }} />
+                                        <input type="time"  onChange={(e) => setTime(e.target.value)} placeholder="Time" style={{ width: "100%", height: 40,cursor:"pointer", }} />
                                     </div><br />
-                                    <div style={{ width: "80%", display: "flex", flexDirection: "column", alignItems: "flex-start", height: "60px", justifyContent: "space-evenly" }}>
-                                        <input  type='file'   onChange={(e) => uploadImage(e.target.files[0])} placeholder="Image" style={{ width: "100%", height: 32, border: "1px solid grey" }} />
+                                    <div style={{ width: "80%", display: "flex", flexDirection: "column", alignItems: "flex-start", height: "60px", justifyContent: "space-evenly", }}>
+                                        <input  type='file'   onChange={(e) => uploadImage(e.target.files[0])} placeholder="Image" style={{ width: "100%", height: 32, border: "1px solid grey",cursor:"pointer",}} />
                                     </div>
 
 

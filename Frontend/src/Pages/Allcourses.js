@@ -159,8 +159,8 @@ function Allcourses() {
               left:"2%"
             }}
           >
-            <h4 onClick={()=>setNoti(false)} style={{right:10, position:"absolute", top:5}}><i className="fa fa-times"></i></h4><br/>
-        <div style={{height:50, width:"95%", backgroundColor:"black", color:"white", borderRadius:10, display:"flex", justifyContent:"center",alignItems:"center"}}>
+            <h4 onClick={()=>setNoti(false)} style={{right:10,cursor:"pointer", position:"absolute", top:5}}><i className="fa fa-times"></i></h4><br/>
+        <div style={{height:50, width:"95%", backgroundColor:"black", color:"white", borderRadius:10, display:"flex", justifyContent:"center",alignItems:"center",}}>
           <h4>Student Info</h4>
         </div>
 
@@ -232,8 +232,8 @@ function Allcourses() {
               </div>
             </div>
             <i
-              class="fa fa-times"
-              style={{ position: "absolute", top: 10, right: 10, fontSize: 25 }}
+              className="fa fa-times"
+              style={{ position: "absolute", top: 10, right: 10, fontSize: 25,cursor:"pointer", }}
               onClick={() => setNoti1(false)}
             ></i>
 
@@ -264,7 +264,7 @@ function Allcourses() {
                       <td>{timeConvert(i.from)}</td>
                       <td>{timeConvert(i.to)}</td>
                       <td>
-                        <a href={tParshData.videoLink}>
+                        <a href={tParshData.videoLink} target="_blank">
                           <button className="btn btn-outline-primary">
                             Join Class
                           </button>
@@ -926,7 +926,7 @@ function Allcourses() {
                         }}
                       >
                       {/* <a href="https://us05web.zoom.us/j/83129393827?pwd=ZHZDRWJuYWhCS2ZqakI0aEVheGN4Zz09"> */}
-                      <a href= "https://meet.google.com/">
+                      <a href= "https://meet.google.com/" target="_blank"> 
                         <button
                          
                           style={{
@@ -1014,7 +1014,7 @@ function Allcourses() {
                       }}
                     >
                      {/* <a href="https://us05web.zoom.us/j/83129393827?pwd=ZHZDRWJuYWhCS2ZqakI0aEVheGN4Zz09"> */}
-                     <a href= "https://meet.google.com/">
+                     <a href= "https://meet.google.com/" target="_blank">
                         <button
                          
                           style={{

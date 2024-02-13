@@ -20,15 +20,15 @@ function Viewcourses() {
   const [ambience, setAmbience] = useState("")
 
   const postRequest = () => {
-    // const item = {
-    //   to: data._id,
-    //   from: userId,
-    //   course: data.specialization,
-    //   mode: mode,
-    //   ambience: ambience,
-    //   status: "panding"
-    // }
-    // axios.post(baseUrl + "request", item).then(()=>alert("Request Send Successfully"))
+    const item = {
+      to: data._id,
+      from: userId,
+      course: data.specialization,
+      mode: mode,
+      ambience: ambience,
+      status: "panding"
+    }
+    axios.post(baseUrl + "request", item).then(()=>alert("Request Send Successfully"))
   }
 
 
@@ -166,7 +166,7 @@ function Viewcourses() {
                 <label>Request teacher to schedule classes:</label><br />
                 <div style={{ height: "15vh", width: "100%", display: "flex" }}>
                   <div style={{ height: "20vh", width: "50%", display: "flex", flexDirection: "column", alignItems: "center" }}>
-                    <select onChange={(e) => setMode(e.target.value)} style={{ height: 40, width: "70%", border: "none", borderRadius: 10, outline: "none" }}>
+                    <select onChange={(e) => setMode(e.target.value)} style={{ height: 40, width: "70%", border: "none", borderRadius: 10, outline: "none",cursor: "pointer", }}>
                       <option selected disabled>Select Mode</option>
                       <option>Online</option>
                       <option>In-Person</option>
@@ -174,7 +174,7 @@ function Viewcourses() {
 
                   </div>
                   <div style={{ height: "20vh", width: "50%", display: "flex", flexDirection: "column", alignItems: "center" }}>
-                    <select onChange={(e) => setAmbience(e.target.value)} style={{ height: 40, width: "70%", border: "none", borderRadius: 10, outline: "none" }}>
+                    <select onChange={(e) => setAmbience(e.target.value)} style={{ height: 40, width: "70%", border: "none", borderRadius: 10, outline: "none",cursor: "pointer", }}>
                       <option selected disabled>Ambience</option>
                       <option>Group</option>
                       <option>Individual</option>
@@ -238,7 +238,7 @@ function Viewcourses() {
                     >
                       <i
                         onClick={() => previusMonth()}
-                        class="fa fa-arrow-circle-o-left"
+                        className="fa fa-arrow-circle-o-left"
                         aria-hidden="true"
                         style={{ color: "black" }}
                       ></i>
@@ -249,7 +249,7 @@ function Viewcourses() {
                       <i
                         onClick={() => nextMonth()}
 
-                        class="fa fa-arrow-circle-o-right"
+                        className="fa fa-arrow-circle-o-right"
                         aria-hidden="true"
                         style={{ color: "black" }}
                       ></i>

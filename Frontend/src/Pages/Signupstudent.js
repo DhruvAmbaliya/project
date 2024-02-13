@@ -111,11 +111,15 @@ function Signupstudent() {
             <div style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "flex-start", height: "60px", justifyContent: "space-evenly" }}>
               <select onChange={(e) => setSkills([...skills,e.target.value])} style={{ width: "100%", height: 40,border:validation===true&skills.length<1?"1px solid red":"1px solid grey" }}>
                 <option selected disabled>Skills</option>
-                {courseData.map((i)=>
+                <option>Reactjs</option>
+                <option>Nodejs</option>
+                <option>MongoDB</option>
+                <option>Html</option>
+                <option>Css</option>
+                <option>Angular</option>
+                {/* {courseData.map((i)=>
                 <option>{i.courseName}</option>
-                )}
- 
-
+                )} */}
               </select>
     
             </div>
