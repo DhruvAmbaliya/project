@@ -106,7 +106,7 @@ function Allcourses() {
   const getName = (x) => {
     if (userList.length > 0) {
       const list = userList.filter((i) => i._id === x)[0];
-      return list.name;
+      return list?.name;
     }
   };
 
@@ -119,7 +119,7 @@ function Allcourses() {
   const getSkills = (x) => {
     if (userList.length > 0) {
       const list = userList.filter((i) => i._id === x)[0];
-      return list.skills;
+      return list?.skills;
     }
   };
 

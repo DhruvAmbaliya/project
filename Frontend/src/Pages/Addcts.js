@@ -84,6 +84,7 @@ function Addcts() {
                 courseName: courseName,
 
             }
+            // axios=fetch
             axios.post(baseUrl + "addcourse", item).then(() => {
                 setCourseName("");
 

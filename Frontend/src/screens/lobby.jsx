@@ -15,12 +15,12 @@ const LobbyScreen =()=>{
     const handleSubmitForm = useCallback((e)=>{
         e.preventDefault();
         socket?.emit("room:join",{email,room});
-        navigate(`/room/${room}`);
         console.log(
             {
                 email,
                 room,
-            })
+            });
+        navigate(`/room/${room}`);
     }, [email,room,socket,navigate] )
 
     const handleJoinRoom= useCallback((data)=>{

@@ -185,7 +185,7 @@ function Signupteacher() {
           <div
 
             style={{ height: "100vh", width: "100%", backgroundColor: "black", display: "flex", justifyContent: "center", textAlign: "center", alignItems: "center", color: "white" }}>
-            <h2 style={{ fontFamily: "Tilt Prism", textShadow: "5px 5px 10px orange" }}><label style={{ fontSize: 67 }}>KNOWLEDGE LAND </label> <br /> VIRTUAL LEARNING PLATFORM</h2>
+            <h2 style={{ fontFamily: "Tilt Prism", textShadow: "5px 5px 10px orange" }}><label style={{ fontSize: 67 }}>SkillEx </label> <br /> VIRTUAL LEARNING PLATFORM</h2>
 
           </div>
         </div>

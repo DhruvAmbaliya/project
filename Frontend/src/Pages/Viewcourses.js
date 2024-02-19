@@ -4,6 +4,7 @@ import Sidebar from './Sidebar'
 import Header from './Header'
 import axios from 'axios';
 import { baseUrl } from './BaseUrl';
+// import VideoCallFrame from "./VideoCallFrame";
 
 function Viewcourses() {
   useEffect(()=>{getallTeachData()},[])
@@ -151,8 +152,8 @@ function Viewcourses() {
                     <label style={{ fontSize: "19px", fontWeight: "bold", letterSpacing: 1, height: 25 }}>{data.specialization}</label>
                     <label>by {data.name}</label>
                     {/* <VideoCallFrame
-              url={"https://ronak1234.daily.co/meet-cat"}
-            ></VideoCallFrame> */}
+                    url={"https://ronak1234.daily.co/meet-cat"}
+                    ></VideoCallFrame> */}
                   </div>
 
                   <div style={{ height: "12vh", width: "30%", display: "flex", justifyContent: "center", alignItems: "center" }}>

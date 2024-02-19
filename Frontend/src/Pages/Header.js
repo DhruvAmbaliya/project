@@ -77,11 +77,11 @@ function Header(props) {
     axios
       .put(baseUrl + "addstudents/" + localStorage.getItem("userId"), item)
   };
+//
+  const getReqData1 = () => {
+    axios.get(baseUrl + "request").then((res) => setNotiList(res.data.data.filter((j) => j.from === userId)))
 
-  // const getReqData1 = () => {
-  //   axios.get(baseUrl + "request").then((res) => setNotiList(res.data.data.filter((j) => j.from === userId)))
-
-  // }
+  }
 
   const acceptReq = (x) => {
     const item = {
@@ -104,7 +104,7 @@ function Header(props) {
   };
   const getName = (x) => {
     const list = userList.filter((i) => i._id === x)[0];
-    return list.name;
+    return list?.name;
   };
 
   const teach = localStorage.getItem("teacherData");
@@ -209,7 +209,7 @@ function Header(props) {
                   color: "white",
                 }}
               >
-                <h2>{tParshData.name} Class Schedule</h2>
+                <h2>{tParshData?.name} Class Schedule</h2>
               </div>
             </div>
             <i

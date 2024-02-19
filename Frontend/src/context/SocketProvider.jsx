@@ -1,5 +1,8 @@
 import React, { createContext, useContext } from "react";
 import { io } from "socket.io-client";
+const socket = io.connect("http://localhost:3001");
+socket.connect();
+console.log(socket)
 
 const SocketContext = createContext(null);
 
@@ -9,7 +12,6 @@ export const useSocket = ()=>{
 }
 
 export const SocketProvider = (props) =>{
-        const socket = io("ws://localhost:8000");
         return(
             <SocketContext.Provider value={socket}>
                 {props.children}

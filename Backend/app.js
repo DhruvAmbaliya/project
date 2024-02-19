@@ -2,36 +2,25 @@ const express = require("express");
 const connectDB = require("./config/db");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const { Server } = require("socket.io");
-
-
-dotenv.config({ path: "./config.env" });
-
+const http = require("http");
 const app = express();
-
-app.use(cors());
-app.use(express.json({ extended: false, limit: "50mb" }));
-
-const io = new Server(8000,{
-  cors:true,
-  // cors: {
-  //   origin: "*", 
-  // },
-}); 
-
-connectDB();
-
-app.use("/api/userlist", require("./routes/userlist"));
-app.use("/api/addstudents", require("./routes/addstudents"));
-app.use("/api/addcourse", require("./routes/addcourse"));
-app.use("/api/newsandannu", require("./routes/newsandannu"));
-app.use("/api/request", require("./routes/request"));
-
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => console.log(`Server running at ${PORT}`));
 
+dotenv.config({ path: "./config.env" });
 
+app.use(cors());
+app.use(express.json({ extended: false, limit: "50mb" }));
+
+const server = http.createServer();
+const { Server } = require("socket.io");
+const io = new Server(server ,{
+  // cors:true,
+  cors: {
+    origin: "http://localhost:3000", 
+  },
+}); 
 
 const emailTOSocketIdMap = new Map();
 const SocketTOemailIdMap = new Map();
@@ -67,4 +56,16 @@ io.on("connection",(socket)=>{
       });
 });
 
+server.listen(3001, () => {
+  console.log("SERVER IS RUNNING");
+  });
+
+
+  connectDB();
+
+  app.use("/api/userlist", require("./routes/userlist"));
+  app.use("/api/addstudents", require("./routes/addstudents"));
+  app.use("/api/addcourse", require("./routes/addcourse"));
+  app.use("/api/newsandannu", require("./routes/newsandannu"));
+  app.use("/api/request", require("./routes/request"));  
 
