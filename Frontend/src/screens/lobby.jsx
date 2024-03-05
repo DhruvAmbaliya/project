@@ -1,26 +1,37 @@
 import React from "react";  
 import { useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSocket } from "../context/SocketProvider";
+import { useSocket,SocketProvider } from "../context/SocketProvider";
+
 
 const LobbyScreen =()=>{
     const [email, setEmail] = useState("");
     const [room, setRoom] = useState("");
 
-    const socket = useSocket();
+    const socket = useSocket();     
     console.log(socket); 
-
     const navigate = useNavigate();
 
     const handleSubmitForm = useCallback((e)=>{
         e.preventDefault();
-        socket?.emit("room:join",{email,room});
-        console.log(
-            {
-                email,
-                room,
-            });
-        navigate(`/room/${room}`);
+        if (socket) {
+            socket.emit("room:join", { email, room });
+            console.log(
+                    {
+                        email,
+                        room,
+                    });
+            navigate(`/room/${room}`);
+          } else {
+            console.error("Socket connection not established.");
+          }
+        // socket?.emit("room:join",{email,room});
+        // console.log(
+        //     {
+        //         email,
+        //         room,
+        //     });
+        // navigate(`/room/${room}`);
     }, [email,room,socket,navigate] )
 
     const handleJoinRoom= useCallback((data)=>{
@@ -54,13 +65,17 @@ const LobbyScreen =()=>{
                     value={room} 
                     onChange={(e)=>setRoom(e.target.value)}
                     />
-                    <br/>
+                    <br/>  
                     <button>Join</button>         
-                    <button onClick={() => navigate("/Recorder")}> Screen Sharing </button>
-                    <button onClick={() => navigate("/Canvas")}> whiteboard </button>
+                    {/* <button onClick={() => navigate("/Recorder")}> Screen Sharing </button>
+                    <button onClick={() => navigate("/Canvas")}> whiteboard </button> */}
                 </form>
             </div>
         )
 }
 
-export default LobbyScreen;
+export default () => (
+    <SocketProvider>
+      <LobbyScreen />
+    </SocketProvider>
+  );

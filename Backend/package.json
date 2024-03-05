@@ -13,7 +13,7 @@
     "@daily-co/daily-js": "^0.58.0",
     "axios": "^1.6.7",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.2",
+    "dotenv": "^16.4.5",
     "express": "^4.18.1",
     "firebase": "^10.8.0",
     "mongoose": "^6.5.4",

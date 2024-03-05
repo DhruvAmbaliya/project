@@ -1,5 +1,5 @@
 import React from 'react'
-import {HashRouter,Routes,Route} from 'react-router-dom'
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import Login from './Pages/Login'
 import Sidebar from './Pages/Sidebar'
 import Signupteacher from './Pages/Signupteacher'
@@ -19,7 +19,7 @@ import Canvas from "./screens/whiteboard.jsx"
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
         <Route path='/' element={<Login/>}></Route>
         <Route path='/Signupteacher' element={<Signupteacher/>}></Route>
@@ -38,7 +38,7 @@ function App() {
         <Route path='/Recorder' element={<Recorder/>}></Route>
         <Route path='/Canvas' element={<Canvas/>}></Route>
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   )
 }
 
