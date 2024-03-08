@@ -12,10 +12,9 @@ import Viewcourses from './Pages/Viewcourses'
 import Signupstudent from './Pages/Signupstudent'
 import Setting from './Pages/Setting'
 import Students from './Pages/Students'
-import LobbyScreen from './screens/lobby.jsx';
-import RoomPage from './screens/room.jsx'
 import Recorder from "./screens/ScreenShare.jsx"
 import Canvas from "./screens/whiteboard.jsx"
+import LobbyScreen from './Pages/LobbyScreen.js'
 
 function App() {
   return (
@@ -34,7 +33,6 @@ function App() {
         <Route path='/Setting' element={<Setting/>}></Route>
         <Route path='/Students' element={<Students/>}></Route>
         <Route path='/LobbyScreen' element={<LobbyScreen/>}></Route>
-        <Route path='/room/:roomId' element={<RoomPage />} ></Route>
         <Route path='/Recorder' element={<Recorder/>}></Route>
         <Route path='/Canvas' element={<Canvas/>}></Route>
       </Routes>
