@@ -51,10 +51,10 @@ function Newsandannc() {
 
               <div className='all-courses-1' style={{ width: "100%", height: "73vh", backgroundColor: "lightgrey", alignItems: "center", display: "flex", borderRadius: 10, flexDirection: "column", overflowY: "auto", paddingBottom: "10px" }}>
 
-                  <div style={{ height: "50px", width: "80%", backgroundColor: "white", textAlign: "center", borderRadius: 10, marginTop: 10, display: "flex", justifyContent: "center", alignItems: "center" }}>
-                      <h5>Moodle Link :</h5> <a href='https://moodle.com' target="_blank"> <label>https://moodle.com</label> </a>
+                  <div style={{ height: "50px", width: "80%", backgroundColor: "white", textAlign: "center", borderRadius: 10, marginTop: 10, display: "flex", justifyContent: "center", alignItems: "center",paddingTop:"6px" }}>
+                      <h5>Moodle Link : <a href='https://moodle.com' target="_blank"> <label style={{ cursor:"pointer"}}>https://moodle.com</label> </a></h5> 
                   </div>
-                  <div style={{ height: "50px", width: "80%", backgroundColor: "white", textAlign: "center", borderRadius: 10, marginTop: 10 }}>
+                  <div style={{ height: "50px", width: "80%", backgroundColor: "white", textAlign: "center", borderRadius: 10, marginTop: 10,paddingTop:"4px" }}>
                       <h2>News And Announcement</h2>
                   </div>
                   {newsList.map((i) =>

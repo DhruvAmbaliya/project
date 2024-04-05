@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import handup from "../handup.png";
 import axios from "axios";
 import { baseUrl } from "./BaseUrl";
-import storage from "./Firebase";
+import {storage} from "./Firebase";
 import { useNavigate } from "react-router-dom";
 
 function Header(props) {
@@ -730,6 +730,7 @@ function Header(props) {
                       type="file"
                       style={{ display: "none", }}
                     />
+                    
                     <label htmlFor="asd">
                       <div
                         style={{
@@ -756,7 +757,8 @@ function Header(props) {
                     </label>
                     <img style={{ height: 33, width: 33 }} src={progress1!==0?"https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYm1ycDM5cmVuOG1peDhuZTRxNjM4aXllbmgwam1iY2FmcTYyOTM2eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oEjI6SIIHBdRxXI40/giphy.gif":pp} />
                     <button style={{margin:10,}} onClick={() => navigate("/LobbyScreen")}>Call</button>
-
+                    <button onClick={() => navigate("/Recorder")}>ScreenShare</button>
+                    <button style={{margin:10,}} onClick={() => navigate("/Canvas")}>Board</button>
                   </div>
                 </div>
                 <br />

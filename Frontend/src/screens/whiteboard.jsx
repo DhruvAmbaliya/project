@@ -1,8 +1,10 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./canvas.css"
+import { Navigate,useNavigate } from "react-router-dom"; 
 
 
 export default function Canvas() {
+  const navigate = useNavigate();
   const [isDrawing, setIsDrawing] = useState(false);
   const [color, setColor] = useState("#3B3B3B");
   const [size, setSize] = useState("3");

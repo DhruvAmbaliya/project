@@ -3,7 +3,7 @@ import Sidebar from './Sidebar'
 import Header from './Header'
 import axios from 'axios'
 import { baseUrl } from './BaseUrl'
-import storage from "./Firebase";
+import {storage} from "./Firebase";
 import Newsandannc from './Newsandannc'
 function Addcts() {
     const [showDiv, setShowDiv] = useState(false)
