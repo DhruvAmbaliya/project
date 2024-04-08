@@ -1,8 +1,11 @@
 import React, { useEffect, useCallback, useState,useRef } from "react";
 import ReactPlayer from "react-player";
+import Modal from "react-modal"
 import peer from "./peer";
 import { useSocket } from "../context/SocketContext";
 import { Navigate,useNavigate } from "react-router-dom";
+import Canvas from "../screens/whiteboard";
+import Recorder from "../screens/ScreenShare";
   
 const RoomPage = () => {
   const navigate = useNavigate();
@@ -12,7 +15,15 @@ const RoomPage = () => {
   const [myStream, setMyStream] = useState();
   const [remoteStream, setRemoteStream] = useState();
   const [callEnded, setCallEnded] = useState(false);
+  const [showCanvas,setShowCanvas] = useState(false);
+  const [showRecorder,setShowRecorder] = useState(false);
 
+  const closeCanvas = ()=> {
+    return setShowCanvas(false);
+  }
+  const closeRecorder = ()=> {
+    return setShowRecorder(false);
+  }
   const handleUserJoined = useCallback(({ email, id }) => {
     console.log(`Email ${email} joined room`);
     setRemoteSocketId(id);
@@ -63,13 +74,6 @@ const RoomPage = () => {
     socket.emit("peer:nego:needed", { offer, to: remoteSocketId });
   }, [remoteSocketId, socket]);
 
-  // const handleEndCall = useCallback(() => {
-  //   peer.peer.close();
-  //   setRemoteSocketId(null);
-  //   setMyStream(null);
-  //   setRemoteStream(null);
-  // }, []);
-
   const leaveCall = useCallback(() => {
     setCallEnded(true);
     connectionRef.current?.destroy();
@@ -80,7 +84,6 @@ const RoomPage = () => {
     peer.peer.addEventListener("negotiationneeded", handleNegoNeeded);
     return () => {
       peer.peer.removeEventListener("negotiationneeded", handleNegoNeeded);
-      // handleEndCall();
     };
   }, [handleNegoNeeded]);
 
@@ -95,8 +98,6 @@ const RoomPage = () => {
   const handleNegoNeedFinal = useCallback(async ({ ans }) => {
     await peer.setLocalDescription(ans);
   }, []);
-
-  
 
   useEffect(() => {
     peer.peer.addEventListener("track", async (ev) => {
@@ -133,15 +134,28 @@ const RoomPage = () => {
   ]);
 
   return (
-    <div>
+    <div className="first">
+    <div className="room">
       <h1>Room Page</h1>
       <h4>{remoteSocketId ? "Connected" : "No one in room"}</h4>
+      </div>
+      <div className="button">
       <button style={{margin:10,}} onClick={() => navigate("/LobbyScreen")}>LobbyScreen</button>
       {myStream && <button onClick={sendStreams}>Send Stream</button>}
       {remoteSocketId && <button style={{margin:10,}} onClick={handleCallUser}>CALL</button>}
       {remoteSocketId && <button style={{margin:10,}} onClick={leaveCall}>End Call</button>} 
-      {remoteSocketId && <button style={{margin:10,}} onClick={() => navigate("/Canvas")}>whiteboard</button>} 
-      {remoteSocketId && <button style={{margin:10,}} onClick={() => navigate("/Recorder")}>ScreenShare</button>} 
+      {remoteSocketId && <button style={{margin:10,}} onClick={() => setShowCanvas(true)}>whiteboard</button>}
+      <Modal isOpen={showCanvas} onRequestClose={()=>setShowCanvas(false)} 
+        style={{overlay:{ background:"#f0f0f0" },
+          // content:{ width:"500px",height:"500px" }
+        }}
+      >
+        <Canvas closeModal={closeCanvas} />
+      </Modal>
+      {remoteSocketId && <button style={{margin:10,}} onClick={() => setShowRecorder(true)}>ScreenShare</button>}
+      </div>
+      {/* {showCanvas && <Canvas closeModal={closeCanvas} />} */}
+      {showRecorder && <Recorder closeModal={closeRecorder} />} 
       {myStream && (
         <>
           <h1>My Stream</h1>
@@ -166,6 +180,7 @@ const RoomPage = () => {
           />
         </>
       )}
+      
     </div>
   );
 };

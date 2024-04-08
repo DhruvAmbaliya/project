@@ -36,8 +36,8 @@
           <Route path='/Setting' element={<Setting/>}></Route>
           <Route path='/Students' element={<Students/>}></Route>
           <Route path='/LobbyScreen' element={<LobbyScreen/>}></Route>
-          <Route path='/Recorder' element={<Recorder/>}></Route>
-          <Route path='/Canvas' element={<Canvas/>}></Route>
+          {/* <Route path='/Recorder' element={<Recorder/>}></Route> */}
+          {/* <Route path='/Canvas' element={<Canvas/>}></Route> */}
           <Route path='/room/:roomId' element={<RoomPage/>} /> 
         </Routes>
       </BrowserRouter>

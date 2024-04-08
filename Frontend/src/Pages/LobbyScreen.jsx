@@ -57,6 +57,7 @@ const LobbyScreen =()=>{
                     <br/>
                     <button>Enter Room</button>
                 </form>
+                <button style={{margin:10,}} onClick={() => navigate("/Addcts")}>Back To Home Page</button>
             </div>
         )
 }

@@ -3,7 +3,7 @@ import "./canvas.css"
 import { Navigate,useNavigate } from "react-router-dom"; 
 
 
-export default function Canvas() {
+export default function Canvas({closeModal}) {
   const navigate = useNavigate();
   const [isDrawing, setIsDrawing] = useState(false);
   const [color, setColor] = useState("#3B3B3B");
@@ -99,8 +99,9 @@ export default function Canvas() {
   };
 
   return (
-    <>
+    <div className="main">
       <div className="canvas-btn">
+      <button onClick={closeModal}>close</button>
       <button onClick={getPen} className="btn-width">
           Pencil
         </button>
@@ -143,6 +144,6 @@ export default function Canvas() {
         onMouseMove={draw}
         ref={canvasRef}
       />
-    </>
+    </div>
   );
 }
